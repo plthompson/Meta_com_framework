@@ -4,13 +4,9 @@ library(cowplot)
 library(scales)
 
 all.results.df <- data.frame()
-for(i in 1:15){
+for(i in 1:30){
   print(i)
   load(paste("./outputs/outputfile_", i, ".RData", sep = ""))
-  
-  model.df <- model.df %>% 
-    filter(Time > 20)
-  
   
   model_summary<- model.df %>% 
     mutate(env_match_raw = (1-abs(z-env))*N) %>% 
@@ -78,5 +74,4 @@ for(i in 1:15){
   all.results.df <- bind_rows(all.results.df, all_model_summary)
 }
 
-#save(all.results.df, file = "./data/julia_outputs.RData")
-#load data ####
+save(all.results.df, file = "./data/julia_outputs.RData")

@@ -37,10 +37,8 @@ options(scipen = 99999)
 all.results.df <- do.call(data.frame,lapply(all.results.df, function(x) replace(x, is.infinite(x),NA)))
 all.results.df <- do.call(data.frame,lapply(all.results.df, function(x) replace(x, is.nan(x),NA)))
 
-all.results.df[all.results.df$sig_niche == unique(all.results.df$sig_niche)[9] & all.results.df$dispersal == unique(all.results.df$dispersal)[1],]
-
 data.median<- all.results.df %>%
-  filter(dispersal < max(dispersal)) %>% 
+  #filter(dispersal < max(dispersal)) %>% 
   group_by(dispersal, sig_niche, alpha) %>% 
   mutate(reps = length(unique(rep))) %>% 
   select(-rep) %>% 
@@ -70,11 +68,12 @@ data.median %>%
   scale_fill_viridis_c(option = "B", trans = "log10", name = "species\nrichness", breaks = c(1,2,5,10,20,45))+
   facet_grid(competition~scale_greek)
 ggsave("./figures/Figure 4.pdf", height = 12*0.6, width = 14*0.6)
+ggsave("./figures/Figure 4.png", height = 12*0.6, width = 14*0.6)
 
 #Figure 3####
 hold <- all.results.df %>%
   filter(sig_niche > 9 | sig_niche > 0.4 & sig_niche < 0.5) %>%
-  filter(dispersal < max(dispersal)) %>% 
+  #filter(dispersal < max(dispersal)) %>% 
   mutate(competition = recode(alpha, `0.5` = "stabilizing competition",
                               `1.5` = "mixed equilibria",
                               equal = "equal competition",
@@ -183,6 +182,3 @@ ggplot(env.df, aes(x = time, y = env1, group = patch))+
   scale_color_brewer(palette = "Set1", name = "patch")+
   ylab("environment")
 ggsave("./figures/Figure S2.pdf", height = 4, width = 7)
-
-
-
