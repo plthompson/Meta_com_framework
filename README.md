@@ -3,7 +3,7 @@ Code to produce the simulations and figures in **Patrick L. Thompson, Laura Meli
 
 To reproduce the results from the paper:
 
-1) run the generate_landscapes.R 
+1) run generate_landscapes.R 
 2) run framework_model.jl
 3) run convert_julia_to_R.R
 4) run process_julia_outputs.R
