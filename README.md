@@ -5,7 +5,8 @@ To reproduce the results from the paper:
 
 1) run the generate_landscapes.R 
 2) run framework_model.jl
-3) run process_julia_outputs.R
-4) run framework_figures.R
+3) run convert_julia_to_R.R
+4) run process_julia_outputs.R
+5) run framework_figures.R
 
 please direct any questions to patrick.thompson@zoology.ubc.ca
