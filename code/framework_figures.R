@@ -153,7 +153,8 @@ ggplot(aes(x = alpha_div, y = alpha_N, fill = factor(round(dispersal,5)), group 
   ylab("community abundance (N)")+
   xlab("\u03B1 richness")+
   scale_fill_viridis_d(breaks = c(1e-5,1e-4,1e-3,1e-2,1e-1), name = expression(paste("dispersal (",italic(a[i]),")")))+
-  scale_color_brewer(palette = "Greys", breaks = c("0.1", "0.5", "1","5", "10"), name = expression("abiotic niche breadth ("~sigma[italic(i)]~")"))+
+  scale_color_manual(values = rev(grey.colors(n = 9)),breaks = c("0.05","0.1", "0.5", "1","5", "10"), name = expression("abiotic niche breadth ("~sigma[italic(i)]~")"))+
+  #scale_color_brewer(palette = "Greys", breaks = c("0.05","0.1", "0.5", "1","5", "10"), name = expression("abiotic niche breadth ("~sigma[italic(i)]~")"))+
   facet_wrap(~competition, scales = "free")
 ggsave("./figures/Figure 6.png", height = 6.5*0.8, width = 8*0.9)
 ggsave("./figures/Figure 6.pdf", height = 6.5*0.8, width = 8*0.9)
