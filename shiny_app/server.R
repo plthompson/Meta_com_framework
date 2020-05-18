@@ -3,7 +3,7 @@ library(ggExtra)
 library(viridis)
 library(cowplot)
 
-#setwd(dir = "~/Documents/Scientific Work/Projects/sTURN/meta_com_shiny/")
+#setwd(dir = "~/Documents/Scientific Work/Projects/Meta_com_framework/shiny_app/")
 load("data/Metacom_shiny.RData")
 
 shinyServer(function(input, output, session) {
